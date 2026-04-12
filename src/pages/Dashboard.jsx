@@ -32,7 +32,7 @@ function Dashboard() {
   };
 
   const handleSubmit = () => {
-    axios.post("https://sajobs-backend-production.up.railway.app", form, {
+    axios.post("https://sajobs-backend-production.up.railway.app/api/jobs", form, {
   headers: { authorization: localStorage.getItem("token") }
 })
       .then((res) => {
