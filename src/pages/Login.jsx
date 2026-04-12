@@ -11,7 +11,7 @@ function Login() {
   };
 
   const handleSubmit = () => {
-    axios.post("http://localhost:5000/api/auth/login", form)
+    axios.post("https://sajobs-backend-production.up.railway.app", form)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("employerName", res.data.name);
