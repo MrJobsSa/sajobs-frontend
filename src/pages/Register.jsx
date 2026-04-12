@@ -11,7 +11,7 @@ function Register() {
   };
 
   const handleSubmit = () => {
-    axios.post("https://sajobs-backend-production.up.railway.app", form)
+    axios.post(axios.post("https://sajobs-backend-production.up.railway.app/api/auth/register", form), form)
       .then((res) => {
         setMessage("Registration successful! You can now login.");
         setError("");
