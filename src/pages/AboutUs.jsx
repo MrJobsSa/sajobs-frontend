@@ -20,7 +20,7 @@ function AboutUs() {
 
         {/* WHO WE ARE */}
         <div className="card">
-          <h2 style={{ marginBottom: "10px" }}>Who We Are 🇿🇦</h2>
+          <h2 style={{ marginBottom: "10px" }}>Who We Are</h2>
           <p style={{ color: "#555", lineHeight: "1.8" }}>
             SA Jobs is a South African job advertising platform built to bridge the gap between 
             talented job seekers and employers across the country. We believe that every South African 
@@ -87,7 +87,7 @@ function AboutUs() {
             We'd love to hear from you!
             <br /><br />
             <strong style={{ color: "white" }}>📧 info@sajobs.co.za</strong><br />
-            <strong style={{ color: "white" }}>📍 Johannesburg, South Africa</strong>
+            <strong style={{ color: "white" }}>📍 Pretoria, South Africa</strong>
           </p>
         </div>
 
