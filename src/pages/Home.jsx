@@ -6,6 +6,8 @@ function Home() {
   const [editJob, setEditJob] = useState(null);
   const [search, setSearch] = useState("");
   const [filterType, setFilterType] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 10;
   const token = localStorage.getItem("token");
   const employerId = parseInt(localStorage.getItem("employerId"));
 
@@ -89,11 +91,12 @@ function Home() {
           <p style={{ color: "#888" }}>No jobs posted yet.</p>
         ) : (
          jobs.filter(job =>
-        (job.title.toLowerCase().includes(search.toLowerCase()) ||
-        job.company.toLowerCase().includes(search.toLowerCase()) ||
-        job.location.toLowerCase().includes(search.toLowerCase())) &&
-        (filterType === "" || job.type === filterType)
-).map((job) => (
+  (job.title.toLowerCase().includes(search.toLowerCase()) ||
+  job.company.toLowerCase().includes(search.toLowerCase()) ||
+  job.location.toLowerCase().includes(search.toLowerCase())) &&
+  (filterType === "" || job.type === filterType)
+).slice((currentPage - 1) * jobsPerPage, currentPage * jobsPerPage)
+.map((job) => (
             <div key={job.id} className="card">
               {editJob && editJob.id === job.id ? (
                 <div>
@@ -145,6 +148,47 @@ function Home() {
           ))
         )}
       </div>
+      {/* PAGINATION */}
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: "30px", marginBottom: "20px" }}>
+  <button
+    onClick={() => setCurrentPage(currentPage - 1)}
+    disabled={currentPage === 1}
+    style={{
+      padding: "10px 20px",
+      background: currentPage === 1 ? "#d1d5db" : "#003A9B",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      cursor: currentPage === 1 ? "not-allowed" : "pointer",
+      fontWeight: "600"
+    }}>
+    ← Previous
+  </button>
+
+  <span style={{ color: "#333", fontWeight: "600", fontSize: "15px" }}>
+    Page {currentPage}
+  </span>
+
+  <button
+    onClick={() => setCurrentPage(currentPage + 1)}
+    disabled={currentPage * jobsPerPage >= jobs.filter(job =>
+      (job.title.toLowerCase().includes(search.toLowerCase()) ||
+      job.company.toLowerCase().includes(search.toLowerCase()) ||
+      job.location.toLowerCase().includes(search.toLowerCase())) &&
+      (filterType === "" || job.type === filterType)
+    ).length}
+    style={{
+      padding: "10px 20px",
+      background: currentPage * jobsPerPage >= jobs.length ? "#d1d5db" : "#003A9B",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      cursor: currentPage * jobsPerPage >= jobs.length ? "not-allowed" : "pointer",
+      fontWeight: "600"
+    }}>
+    Next →
+  </button>
+</div>
     </div>
   );
 }
