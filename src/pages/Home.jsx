@@ -114,6 +114,9 @@ function Home() {
 {job.salary && <p className="location">💰 {job.salary}</p>}
 {job.type && <p className="location">💼 {job.type}</p>}
 <p className="description">{job.description}</p>
+<p style={{ color: "#aaa", fontSize: "13px", marginBottom: "8px" }}>
+  📅 Posted: {new Date(job.created_at).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" })}
+</p>
 {job.apply_link && (
   <a href={job.apply_link.includes("@") ? `mailto:${job.apply_link}` : job.apply_link}
     target="_blank"
