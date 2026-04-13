@@ -14,14 +14,14 @@ function Home() {
   }, []);
 
   const fetchJobs = () => {
-    axios.get("https://sajobs-backend-production.up.railway.app")
+    axios.get("https://sajobs-backend-production.up.railway.app/api/jobs")
       .then((res) => setJobs(res.data))
       .catch((err) => console.error(err));
   };
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this job?")) {
-      axios.delete(`http://localhost:5000/api/jobs/${id}`, {
+      axios.delete(`https://sajobs-backend-production.up.railway.app/api/jobs/${id}`, {
         headers: { authorization: token }
       })
         .then(() => fetchJobs())
@@ -38,7 +38,7 @@ function Home() {
   };
 
   const handleEditSubmit = () => {
-    axios.put(`http://localhost:5000/api/jobs/${editJob.id}`, editJob, {
+    axios.put(`https://sajobs-backend-production.up.railway.app/api/jobs/${editJob.id}`, editJob, {
       headers: { authorization: token }
     })
       .then(() => {
