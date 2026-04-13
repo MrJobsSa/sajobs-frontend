@@ -11,34 +11,35 @@ function App() {
   return (
     <Router>
       <nav style={{
-        background: "#003A9B",
-        padding: "0 40px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        height: "64px",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <span style={{ color: "#00AEEF", fontSize: "28px", fontWeight: "800" }}>SA</span>
-        <span style={{ color: "white", fontSize: "28px", fontWeight: "800" }}>Jobs</span>
-</div>
-        <div style={{ display: "flex", gap: "30px" }}>
-          <Link to="/" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>Find Jobs</Link>
-          <Link to="/dashboard" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>Post a Job</Link>
-          <Link to="/login" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>Login</Link>
-          <Link to="/about" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>About Us</Link>
-          <Link to="/register" style={{
-            color: "#003A9B",
-            background: "white",
-            textDecoration: "none",
-            fontSize: "15px",
-            fontWeight: "600",
-            padding: "8px 18px",
-            borderRadius: "6px"
-          }}>Register</Link>
-        </div>
-      </nav>
+  background: "#003A9B",
+  padding: "12px 20px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  flexWrap: "wrap",
+  gap: "10px",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
+}}>
+  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+    <span style={{ color: "#00AEEF", fontSize: "24px", fontWeight: "800" }}>SA</span>
+    <span style={{ color: "white", fontSize: "24px", fontWeight: "800" }}>Jobs</span>
+  </div>
+  <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
+    <Link to="/" style={{ color: "white", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>Find Jobs</Link>
+    <Link to="/dashboard" style={{ color: "white", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>Post a Job</Link>
+    <Link to="/about" style={{ color: "white", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>About Us</Link>
+    <Link to="/login" style={{ color: "white", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>Login</Link>
+    <Link to="/register" style={{
+      color: "#003A9B",
+      background: "white",
+      textDecoration: "none",
+      fontSize: "14px",
+      fontWeight: "600",
+      padding: "6px 14px",
+      borderRadius: "6px"
+    }}>Register</Link>
+  </div>
+</nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
