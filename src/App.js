@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Link to="/" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>Find Jobs</Link>
           <Link to="/dashboard" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>Post a Job</Link>
           <Link to="/login" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>Login</Link>
+          <Link to="/about" style={{ color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "500" }}>About Us</Link>
           <Link to="/register" style={{
             color: "#003A9B",
             background: "white",
@@ -43,6 +45,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
        <footer style={{
         background: "#003A9B",
@@ -74,6 +77,7 @@ function App() {
               <a href="/dashboard" style={{ color: "#c7d9ff", textDecoration: "none", fontSize: "14px" }}>Post a Job</a>
               <a href="/register" style={{ color: "#c7d9ff", textDecoration: "none", fontSize: "14px" }}>Register</a>
               <a href="/login" style={{ color: "#c7d9ff", textDecoration: "none", fontSize: "14px" }}>Login</a>
+              <a href="/about" style={{ color: "#c7d9ff", textDecoration: "none", fontSize: "14px" }}>About Us</a>
               <a href="/privacy-policy" style={{ color: "#c7d9ff", textDecoration: "none", fontSize: "14px" }}>Privacy Policy</a>
             </div>
           </div>
