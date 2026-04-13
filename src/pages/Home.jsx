@@ -114,6 +114,24 @@ function Home() {
 {job.salary && <p className="location">💰 {job.salary}</p>}
 {job.type && <p className="location">💼 {job.type}</p>}
 <p className="description">{job.description}</p>
+{job.apply_link && (
+  <a href={job.apply_link.includes("@") ? `mailto:${job.apply_link}` : job.apply_link}
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      display: "inline-block",
+      marginTop: "10px",
+      padding: "10px 20px",
+      background: "#003A9B",
+      color: "white",
+      borderRadius: "8px",
+      textDecoration: "none",
+      fontWeight: "600",
+      fontSize: "14px"
+    }}>
+    Apply Now →
+  </a>
+)}
                   <div className="actions">
                   {token && job.employer_id === employerId && <button className="btn-edit" onClick={() => handleEdit(job)}>Edit</button>}
                   {token && job.employer_id === employerId && <button className="btn-danger" onClick={() => handleDelete(job.id)}>Delete</button>}

@@ -8,7 +8,9 @@ function Dashboard() {
     location: "",
     description: "",
     type: "Full-Time",
-    salary: ""
+    salary: "",
+    apply_link: ""
+  
   });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -38,7 +40,7 @@ function Dashboard() {
       .then((res) => {
         setMessage("Job posted successfully! ✅");
         setError("");
-        setForm({ title: "", company: "", location: "", description: "", type: "Full-Time", salary: "" });
+        setForm({ title: "", company: "", location: "", description: "", type: "Full-Time", salary: "", apply_link: "" });
       })
       .catch((err) => {
         setError("Something went wrong. Please try again.");
@@ -64,6 +66,7 @@ function Dashboard() {
         <input name="company" placeholder="Company Name" value={form.company} onChange={handleChange} />
         <input name="location" placeholder="Location e.g. Johannesburg" value={form.location} onChange={handleChange} />
         <input name="salary" placeholder="Salary e.g. R15,000 - R20,000 per month" value={form.salary} onChange={handleChange} />
+        <input name="apply_link" placeholder="Apply Link e.g. careers@company.com or www.company.com/careers" value={form.apply_link} onChange={handleChange} />
 
         <select name="type" value={form.type} onChange={handleChange}>
           <option value="Full-Time">Full-Time</option>
