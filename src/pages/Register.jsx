@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Register() {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", employerCode: "" });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
@@ -15,10 +15,10 @@ function Register() {
       .then((res) => {
         setMessage("Registration successful! You can now login.");
         setError("");
-        setForm({ name: "", email: "", password: "" });
+        setForm({ name: "", email: "", password: "", employerCode: "" });
       })
       .catch((err) => {
-        setError("Something went wrong. Please try again.");
+        setError(err.response?.data?.error || "Something went wrong. Please try again.");
         setMessage("");
       });
   };
@@ -35,6 +35,7 @@ function Register() {
         <input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
         <input name="email" type="email" placeholder="Email address" value={form.email} onChange={handleChange} />
         <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} />
+        <input name="employerCode" type="password" placeholder="Employer Code" value={form.employerCode} onChange={handleChange} />
 
         <button className="btn-primary" onClick={handleSubmit}>Register</button>
 
